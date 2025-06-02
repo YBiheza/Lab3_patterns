@@ -1,0 +1,11 @@
+import { FileSystemProxy } from "./proxy/proxy.js";
+import { ReadFileCommand } from "./command/command.js";
+import { WriteFileCommand } from "./command/command.js";
+import { DeleteFileCommand } from "./command/command.js";
+const userFS = new FileSystemProxy('user');
+const read = new ReadFileCommand(userFS, 'f.txt');
+const write = new WriteFileCommand(userFS, 'f.txt', 'new line');
+const del = new DeleteFileCommand(userFS, 'f.txt');
+read.execute();
+write.execute();
+del.execute();
